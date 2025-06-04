@@ -1,37 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Headless WordPress with Ninja Forms
 
-## Getting Started
+This project is a Next.js application that integrates with WordPress and Ninja Forms to create a headless form submission system.
 
-First, run the development server:
+## Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you begin, ensure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v18 or higher)
+- npm
+- A WordPress installation (v6.0 or higher)
+- PHP 7.4 or higher (for WordPress)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## WordPress Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Install and activate the following WordPress plugins:
 
-## Learn More
+   - [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) (v3.7.0 or higher)
 
-To learn more about Next.js, take a look at the following resources:
+   - [WPGraphQL](https://github.com/wp-graphql/wp-graphql)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - [WPGraphQL for Ninja Forms](https://github.com/toriphes/wp-graphql-ninja-forms)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Configure Ninja Forms:
 
-## Deploy on Vercel
+   - This project uses the default Ninja Forms fields. No custom fields are required
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ninja-forms-headlesswp
+1. Clone the repository:
+
+   ```bash
+   git clone [https://github.com/Fran-A-Dev/ninja-forms-headlesswp]
+   cd headless-wp-ninja-forms
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+3. Create a `.env.local` file in the root directory with the following variables:
+
+   ```
+   NEXT_PUBLIC_GRAPHQL_ENDPOINT="https://your-wpsite.com/graphql"
+   WP_AUTH_TOKEN="your-auth-token"
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+
+   ```
+
+4. Generate an auth token with the openssl command and add it to your environment variables:
+   openssl rand -base64 32
+
+## Development
+
+1. Start the development server:
+
+   ```bash
+   npm run dev
+
+   ```
+
+2. Open [http://localhost:3000/contact-us](http://localhost:3000/contact-us) in your browser and test the form submission
