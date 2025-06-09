@@ -4,6 +4,7 @@ export async function submitForm(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const message = formData.get("message") as string;
+  const imageUrl = formData.get("imageUrl") as string | null;
 
   if (!name || !email || !message) {
     return { error: "Please fill in all fields" };
@@ -17,7 +18,7 @@ export async function submitForm(formData: FormData) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ name, email, message, imageUrl }),
     });
 
     const result = await response.json();
